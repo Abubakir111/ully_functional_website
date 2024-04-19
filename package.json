@@ -1,0 +1,22 @@
+{
+  "name": "bakir",
+  "version": "1.0.0",
+  "description": "test_express.js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "div": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.4",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "js-base64": "^3.7.7",
+    "nodemon": "^3.1.0",
+    "pg": "^8.11.5"
+  }
+}

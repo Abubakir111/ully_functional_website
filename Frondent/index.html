@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.7/base64.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="header__avatar">
+        <img class="header__avatar-img" src="" alt="sds" />
+        <div class="header__avatar-usrname">bakir</div>
+      </div>
+      <div class="header__btn-container">
+        <button class="blockButton blockButton_hover" id="header__toComeInBtn">Войти</button>
+        <button class="blockButton blockButton_hover" id="header__authorizationBtn">авторизация</button>
+      </div>
+    </header>
+
+    <div class="filling-form__wrapp" id="toComeForm">
+      <div class="filling-form">
+        <div class="filling-form__icon-container">
+          <button class="filling-form__close-icon" id="toComeFormCross">&#x2715;</button>
+        </div>
+        <span class="filling-form__error">заполните поля</span>
+        <div class="filling-form__fields">
+          <label class="filling-form__logo" for="login"> Логин: </label>
+          <input type="text" name="login" id="" placeholder="..." />
+        </div>
+        <div class="filling-form__fields">
+          <label class="filling-form__password" for="passworid"> Парол: </label>
+          <input type="text" name="passworid" id="" placeholder="..." />
+        </div>
+        <button class="blockButton filling-form__btn filling-form__btn_hover" type="button" id="toComeFormBtn">
+          войти
+        </button>
+      </div>
+    </div>
+
+    <div class="filling-form__wrapp" id="authorizationForm">
+      <div class="filling-form">
+        <div class="filling-form__icon-container">
+          <button class="filling-form__close-icon" id="authorizationFormCross">&#x2715;</button>
+        </div>
+        <span class="filling-form__error">заполните поля</span>
+        <div class="filling-form__fields">
+          <label class="filling-form__logo" for="login"> Имя: </label>
+          <input type="text" name="login" id="" placeholder="..." />
+        </div>
+        <div class="filling-form__fields">
+          <label class="filling-form__password" for="passworid"> Парол: </label>
+          <input type="text" name="passworid" id="" placeholder="..." />
+        </div>
+        <div class="filling-form__fields">
+          <label class="filling-form__password" for="passworid"> Email: </label>
+          <input type="text" name="passworid" id="" placeholder="..." />
+        </div>
+        <button class="blockButton filling-form__btn filling-form__btn_hover" type="button" id="authorizationFormBtn">
+          зарегистрироваться
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Посты</h1>
+      <div class="post"></div>
+      <div class="commit">
+        <div class="commit__textarea-container">
+          <textarea class="commit__textarea" name="" id="" cols="30" rows="5" placeholder="коментарий...."></textarea>
+          <button class="blockButton commit__btn">отсвить коментарий</button>
+        </div>
+        <h3 class="commit__h3">Твой отзыв</h3>
+        <div class="commit__coments">
+          <div class="user_commit">
+            <div class="user-commit__avatar">
+              <img class="user-commit__img" src="./images/avatar/is_my.jpg" alt="sds" />
+              <div class="user-commit__logo">Bakir</div>
+            </div>
+            <div class="user-commit__commit">Думаю эти технолгий прекрсаные как по мне часто пользуюсь)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/js-base64/base64.mjs"></script>
+    <script type="module" src="/script/script.js"></script>
+  </body>
+</html>
