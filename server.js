@@ -43,7 +43,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.get('api/posts', (req, res) => {
+app.get('/api/posts', (req, res) => {
   res.json(post);
 });
 app.post('/server', (req, res) => {
