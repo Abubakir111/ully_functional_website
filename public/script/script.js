@@ -10,6 +10,7 @@ const toComeForm = document.querySelector('#toComeForm');
 const toComeFormBtn = document.querySelector('#toComeFormBtn');
 const toComeFormCross = document.querySelector('#toComeFormCross');
 const authorizationFormCross = document.querySelector('#authorizationFormCross');
+const postBtn_telegram_bot = document.querySelector('#test_telegram_btn');
 
 const get_fetch = async () => {
   const resposte = await fetch('api/posts');
@@ -30,7 +31,21 @@ const get_fetch = async () => {
     blockPost.appendChild(postCart);
   });
 };
+const post_fetch = async () => {
+  const resposte = await fetch('/api/botTelegram', {
+    method: 'POST',
+    body: JSON.stringify({
+      botMassage: 'тестовый отправка заявки в  группу  телеграм'
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  });
+  const data = await resposte.json();
+};
 get_fetch();
+postBtn_telegram_bot.addEventListener('click', () => post_fetch);
+
 const closeForm = (form) => {
   body.classList.remove('body-hidden');
   header.classList.remove('header__filter');

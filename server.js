@@ -13,8 +13,13 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import { Base64 } from 'js-base64';
+import TelegramBot from 'node-telegram-bot-api';
 // import pkg from 'pg';
 // const { Pool } = pkg;
+const botToken = '6313225012:AAF-lWBd2E42ZMS6Um2-l6Y2ynLIOPx1EAI';
+const chatId = '-411094732';
+
+const bot = new TelegramBot(botToken);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -38,20 +43,20 @@ const post = [
     body: '— формальный язык декодирования и описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML). Также может применяться к любым XML-документам, например, к SVG или XUL.'
   }
 ];
-
 const app = express();
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/api/posts', (req, res) => {
   res.json(post);
+  const message = `Новая заявка с сайта: ${data.name}, ${data.email}, ${data.message}`;
+  bot.sendMessage(chatId, message);
 });
-app.post('/server', (req, res) => {
-  console.log(req.body);
-  users;
-  users.login = Base64.decode(req.body.login);
-  users.password = Base64.decode(req.body.password);
-  res.json({ ...users });
+app.post('/api/botTelegram', (req, res) => {
+  req.body.botMassage;
+  const message = `Новая заявка с сайта: ${req.body.botMassage}`;
+  bot.sendMessage(chatId, message);
+  res.json({ massege: 'Заявка отправлена на телеграм' });
 });
 
 const PORT = 3000;
@@ -59,6 +64,13 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+// app.post('/server', (req, res) => {
+//   console.log(req.body);
+//   users;
+//   users.login = Base64.decode(req.body.login);
+//   users.password = Base64.decode(req.body.password);
+//   res.json({ ...users });
+// });
 // const pool = new Pool({
 //   user: 'postgres',
 //   host: 'localhost',
