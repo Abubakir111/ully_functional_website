@@ -13,8 +13,8 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import { Base64 } from 'js-base64';
-import pkg from 'pg';
-const { Pool } = pkg;
+// import pkg from 'pg';
+// const { Pool } = pkg;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -41,8 +41,24 @@ const post = [
 
 const app = express();
 app.use(bodyParser.json());
+app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/posts', (req, res) => {
+  res.json(post);
+});
+app.post('/server', (req, res) => {
+  console.log(req.body);
+  users;
+  users.login = Base64.decode(req.body.login);
+  users.password = Base64.decode(req.body.password);
+  res.json({ ...users });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 // const pool = new Pool({
 //   user: 'postgres',
 //   host: 'localhost',
@@ -58,25 +74,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     res.status(200).json(results.rows);
 //   });
 // });
-
-app.get('/server', (req, res) => {
-  res.sendFile(path.join(__dirname, './Frondent/index.html'));
-});
-app.get('/server/posts', (req, res) => {
-  res.json(post);
-});
-app.post('/server', (req, res) => {
-  console.log(req.body);
-  users;
-  users.login = Base64.decode(req.body.login);
-  users.password = Base64.decode(req.body.password);
-  res.json({ ...users });
-});
-
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
 // const post = [
 //   {

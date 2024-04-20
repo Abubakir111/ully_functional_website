@@ -12,7 +12,7 @@ const toComeFormCross = document.querySelector('#toComeFormCross');
 const authorizationFormCross = document.querySelector('#authorizationFormCross');
 
 const get_fetch = async () => {
-  const resposte = await fetch('/server/posts');
+  const resposte = await fetch('/posts');
   const data = await resposte.json();
   console.log(data);
   const blockPost = document.querySelector('.post');
