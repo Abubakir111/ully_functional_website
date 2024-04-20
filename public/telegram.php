@@ -19,7 +19,7 @@ $arr = array(
 // };
 $test_telgram_masege ='тестовый  отправка сообшения '
 
-$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$test_telgram_masege}","r");
 
 if ($sendToTelegram) {
   header('Location: thank-you.html');
