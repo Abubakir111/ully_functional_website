@@ -34,17 +34,18 @@ const get_fetch = async () => {
 const post_fetch = async () => {
   const resposte = await fetch('/api/botTelegram', {
     method: 'POST',
-    body: JSON.stringify({
-      botMassage: 'тестовый отправка заявки в  группу  телеграм'
-    }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8'
-    }
+    },
+    body: JSON.stringify({
+      botMassage: 'тестовый отправка заявки в  группу  телеграм'
+    })
   });
   const data = await resposte.json();
 };
 get_fetch();
-postBtn_telegram_bot.addEventListener('click', () => post_fetch);
+console.log(postBtn_telegram_bot);
+postBtn_telegram_bot.addEventListener('click', () => post_fetch());
 
 const closeForm = (form) => {
   body.classList.remove('body-hidden');

@@ -14,10 +14,8 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import { Base64 } from 'js-base64';
 import TelegramBot from 'node-telegram-bot-api';
-// import pkg from 'pg';
-// const { Pool } = pkg;
 const botToken = '6313225012:AAF-lWBd2E42ZMS6Um2-l6Y2ynLIOPx1EAI';
-const chatId = '-411094732';
+const chatId = -4110947322;
 
 const bot = new TelegramBot(botToken);
 
@@ -49,14 +47,33 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/api/posts', (req, res) => {
   res.json(post);
-  const message = `Новая заявка с сайта: ${data.name}, ${data.email}, ${data.message}`;
-  bot.sendMessage(chatId, message);
 });
 app.post('/api/botTelegram', (req, res) => {
-  req.body.botMassage;
+  req.body;
+  console.log(req.body);
   const message = `Новая заявка с сайта: ${req.body.botMassage}`;
   bot.sendMessage(chatId, message);
-  res.json({ massege: 'Заявка отправлена на телеграм' });
+  // bot.sendMessage(chatId, "<b><font color='red'>Красный текст</font></b>", { parse_mode: 'HTML' });
+  // bot.sendMessage(
+  //   chatId,
+  //   `
+  //   <html>
+  //       <head>
+  //           <style>
+  //               /* Здесь вставляете ваши стили из файла CSS */
+  //               body {
+  //                   font-size: 16px;
+  //                   color: red;
+  //               }
+  //           </style>
+  //       </head>
+  //       <body>
+  //           <p>${message}</p>
+  //       </body>
+  //   </html>`,
+  //   { parse_mode: 'HTML' }
+  // );
+  // res.json({ massege: 'Заявка отправлена на телеграм' });
 });
 
 const PORT = 3000;
@@ -64,6 +81,9 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+// const TelegramBot = require('node-telegram-bot-api');
+// import pkg from 'pg';
+// const { Pool } = pkg;
 // app.post('/server', (req, res) => {
 //   console.log(req.body);
 //   users;
