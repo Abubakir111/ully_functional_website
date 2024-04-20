@@ -53,26 +53,26 @@ app.post('/api/botTelegram', (req, res) => {
   console.log(req.body);
   const message = `Новая заявка с сайта: ${req.body.botMassage}`;
   // bot.sendMessage(chatId, message);
-  // bot.sendMessage(chatId, "<b><font color='red'>Красный текст</font></b>", { parse_mode: 'HTML' });
-  bot.sendMessage(
-    chatId,
-    `
-    <html>
-        <head>
-            <style>
-                /* Здесь вставляете ваши стили из файла CSS */
-                body {
-                    font-size: 16px;
-                    color: red;
-                }
-            </style>
-        </head>
-        <body>
-            <p>${message}</p>
-        </body>
-    </html>`,
-    { parse_mode: 'HTML' }
-  );
+  bot.sendMessage(chatId, "<b><font color='red'>Красный текст</font></b>", { parse_mode: 'HTML' });
+  // bot.sendMessage(
+  //   chatId,
+  //   `
+  //   <html>
+  //       <head>
+  //           <style>
+  //               /* Здесь вставляете ваши стили из файла CSS */
+  //               body {
+  //                   font-size: 16px;
+  //                   color: red;
+  //               }
+  //           </style>
+  //       </head>
+  //       <body>
+  //           <p>${message}</p>
+  //       </body>
+  //   </html>`,
+  //   { parse_mode: 'HTML' }
+  // );
   // res.json({ massege: 'Заявка отправлена на телеграм' });
 });
 
