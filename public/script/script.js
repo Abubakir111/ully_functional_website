@@ -62,11 +62,9 @@ const toComeIn = () => {};
 headerAuthorizationBtn.addEventListener('click', (e) => {
   openForm(authorizationForm);
 });
-
 authorizationFormBtn.addEventListener('click', (e) => {
   post_user(e);
 });
-
 const post_user = (e) => {
   const inputNote = e.target.parentElement.querySelectorAll('input');
   if (inputNote[0].value == '' || inputNote[1].value == '') {
