@@ -9,8 +9,6 @@ function sendFormData() {
     var productsMessage = '';
     if (products && products.length > 0) {
       productsMessage += 'Товары в корзине:\n\n';
-      localhost: 3000;
-      localhost: 3000;
       var totalPrice = 0;
       products.forEach(function (product) {
         productsMessage += 'Название: ' + product.title + '\n';
@@ -33,9 +31,9 @@ function sendFormData() {
     message += 'Телеграм: ' + telegram + '\n\n';
     message += productsMessage;
 
-    var token = '6313225012:AAF-lWBd2E42ZMS6Um2-l6Y2ynLIOPx1EAI';
+    var token = '7000772962:AAFt3zt8zz7Xl8v2wgrnS3VU-xCds-OhnHc';
 
-    var chatId = '-4110947322';
+    var chatId = '-1002055100649';
 
     var url =
       'https://api.telegram.org/bot' +
