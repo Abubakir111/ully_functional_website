@@ -31,18 +31,6 @@ const get_fetch = async () => {
     blockPost.appendChild(postCart);
   });
 };
-const post_fetch = async () => {
-  const resposte = await fetch('/api/botTelegram', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8'
-    },
-    body: JSON.stringify({
-      botMassage: 'тестовый отправка заявки в  группу  телеграм'
-    })
-  });
-  const data = await resposte.json();
-};
 get_fetch();
 console.log(postBtn_telegram_bot);
 postBtn_telegram_bot.addEventListener('click', () => post_fetch());
@@ -79,23 +67,24 @@ headerAuthorizationBtn.addEventListener('click', (e) => {
   openForm(authorizationForm);
 });
 authorizationFormBtn.addEventListener('click', (e) => {
-  post_user(e);
+  auth_user(e);
 });
-const post_user = (e) => {
+const auth_user = (e) => {
   const inputNote = e.target.parentElement.querySelectorAll('input');
-  if (inputNote[0].value == '' || inputNote[1].value == '') {
+  if (inputNote[0].value == '' && inputNote[1].value == '' && inputNote[2].value == '') {
     e.target.parentElement.querySelector('.filling-form__error').classList.add('show');
   } else {
     closeForm(authorizationForm);
-    const login = encode(inputNote[0].value);
+    const usrname = encode(inputNote[0].value);
     const password = encode(inputNote[1].value);
+    const email = encode(inputNote[2].value);
     const post_fetch = async () => {
-      const resposte = await fetch('/server', {
+      const resposte = await fetch('/api/botTelegram', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ login: login, password: password })
+        body: JSON.stringify({ usrname: usrname, password: password, email: email })
       });
       const data = await resposte.json();
       console.log(data);
@@ -106,3 +95,17 @@ const post_user = (e) => {
     post_fetch();
   }
 };
+
+// const post_fetch = async () => {
+
+//   const resposte = await fetch('/api/botTelegram', {
+//     method: 'POST',
+//     headers: {
+//       'Content-type': 'application/json; charset=UTF-8'
+//     },
+//     body: JSON.stringify({
+//       botMassage: 'тестовый отправка заявки в  группу  телеграм'
+//     })
+//   });
+//   const data = await resposte.json();
+// };

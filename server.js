@@ -21,66 +21,69 @@ const bot = new TelegramBot(botToken);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const post = [
-  {
-    userId: 1,
-    id: 1,
-    title: 'Что такое Express js простыми словами?',
-    body: 'js/JavaScript) Express представляет собой популярный веб-фреймворк, написанный на JavaScript и работающий внутри среды исполнения node. js. Этот модуль освещает некоторые ключевые преимущества этого фреймворка, установку среды разработки и выполнение основных задач веб-разработки и развёртывания.'
-  },
-  {
-    userId: 1,
-    id: 1,
-    title: 'Что это значит JS?',
-    body: 'создания интерактивных веб-страниц. Функции JavaScript могут улучшить удобство взаимодействия пользователя с веб-сайтом: от обновления ленты новостей в социальных сетях и до отображения анимации и интерактивных карт.'
-  },
-  {
-    userId: 1,
-    id: 1,
-    title: 'Что такое CSS простыми словами?',
-    body: '— формальный язык декодирования и описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML). Также может применяться к любым XML-документам, например, к SVG или XUL.'
-  }
-];
 const app = express();
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public')));
-
-app.get('/api/posts', (req, res) => {
-  res.json(post);
-});
-app.post('/api/botTelegram', (req, res) => {
-  req.body;
-  console.log(req.body);
-  const message = `Новая заявка с сайта: ${req.body.botMassage}`;
-  // bot.sendMessage(chatId, message);
-  bot.sendMessage(chatId, "<b><font color='red'>Красный текст</font></b>", { parse_mode: 'HTML' });
-  // bot.sendMessage(
-  //   chatId,
-  //   `
-  //   <html>
-  //       <head>
-  //           <style>
-  //               /* Здесь вставляете ваши стили из файла CSS */
-  //               body {
-  //                   font-size: 16px;
-  //                   color: red;
-  //               }
-  //           </style>
-  //       </head>
-  //       <body>
-  //           <p>${message}</p>
-  //       </body>
-  //   </html>`,
-  //   { parse_mode: 'HTML' }
-  // );
-  // res.json({ massege: 'Заявка отправлена на телеграм' });
-});
 
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+// const post = [
+//   {
+//     userId: 1,
+//     id: 1,
+//     title: 'Что такое Express js простыми словами?',
+//     body: 'js/JavaScript) Express представляет собой популярный веб-фреймворк, написанный на JavaScript и работающий внутри среды исполнения node. js. Этот модуль освещает некоторые ключевые преимущества этого фреймворка, установку среды разработки и выполнение основных задач веб-разработки и развёртывания.'
+//   },
+//   {
+//     userId: 1,
+//     id: 1,
+//     title: 'Что это значит JS?',
+//     body: 'создания интерактивных веб-страниц. Функции JavaScript могут улучшить удобство взаимодействия пользователя с веб-сайтом: от обновления ленты новостей в социальных сетях и до отображения анимации и интерактивных карт.'
+//   },
+//   {
+//     userId: 1,
+//     id: 1,
+//     title: 'Что такое CSS простыми словами?',
+//     body: '— формальный язык декодирования и описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML). Также может применяться к любым XML-документам, например, к SVG или XUL.'
+//   }
+// ];
+// app.get('/api/posts', (req, res) => {
+//   res.json(post);
+// });
+// app.post('/api/botTelegram', (req, res) => {
+//   req.body;
+//   console.log(req.body);
+//   res.json({ massege: 'вы успешно зарегистрировались' });
+//   const sms_telegram_message = `<b>1 Пользователь успешно зарегистрировался</b>\nИмя:   ${Base64.decode(
+//     req.body.usrname
+//   )}\nПарол:   ${Base64.decode(req.body.password)}\nПочта:   ${Base64.decode(req.body.email)}`;
+//   bot.sendMessage(chatId, sms_telegram_message, { parse_mode: 'HTML' });
+// });
+// bot.sendMessage(chatId, "<b>< color='red'>${}</b>, { parse_mode: 'HTML' });
+// bot.sendMessage(
+//   chatId,
+//   `
+//   <html>
+//       <head>
+//           <style>
+//               /* Здесь вставляете ваши стили из файла CSS */
+//               body {
+//                   font-size: 16px;
+//                   color: red;
+//               }
+//           </style>
+//       </head>
+//       <body>
+//           <p>${message}</p>
+//       </body>
+//   </html>`,
+//   { parse_mode: 'HTML' }
+// );
+// res.json({ massege: 'Заявка отправлена на телеграм' });
+// });
 // const TelegramBot = require('node-telegram-bot-api');
 // import pkg from 'pg';
 // const { Pool } = pkg;
